@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Slides</title>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="css/slides.css" media="screen">
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/slides.js"></script>
+		<script>
+			$(function () {
+				window.kittens = new Slides('#kittens', {
+					aspect: '16x9',
+					interval: 3000
+				});
+
+				$('#w').on('input', function () {
+					$('.container').css({width: this.value + '%'});
+					kittens.adjustContainerHeight();
+				});
+
+				$('#a').change(function () {
+					kittens.destroy();
+					window.kittens = new Slides('#kittens', {aspect: this.value});
+				});
+
+				$('#prev').click(function () {
+					kittens.previous();
+				});
+
+				$('#next').click(function () {
+					kittens.next();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+
+		0% <input type="range" id="w" min="0" max="100" value="40"> 100%
+		<select id="a">
+			<option value="1x1">1x1</option>
+			<option value="3x1">3x1</option>
+			<option value="4x3">4x3</option>
+			<option value="1x3">1x3</option>
+			<option value="16x9" selected>16x9</option>
+			<option value="16x10">16x10</option>
+		</select>
+		<button id="prev">Prev</button>
+		<button id="next">Next</button>
+
+		<div class="container">
+
+			<ul id="kittens" class="slides fade">
+				<li class="slide">
+					<div class="slide-content">
+						<img src="http://placekitten.com/300/200">
+						<div class="caption">300x200</div>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="slide-content">
+						<img src="http://placekitten.com/300/300">
+						<div class="caption">300x300</div>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="slide-content">
+						<img src="http://placekitten.com/200/300">
+						<div class="caption">200x300</div>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="slide-content">
+						<img src="http://placekitten.com/500/300">
+						<div class="caption">500x300</div>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="slide-content">
+						<img src="http://placekitten.com/300/600">
+						<div class="caption">300x600</div>
+					</div>
+				</li>
+				<li class="slide">
+					<div class="slide-content">
+						<img src="http://placekitten.com/350/240">
+						<div class="caption">350x240</div>
+					</div>
+				</li>
+			</ul>
+
+			<h1>Example page content</h1>
+			<p>Should not get eaten up by the slider because of any strange issues...</p>
+
+		</div>
+
+	</body>
+
+</html>
