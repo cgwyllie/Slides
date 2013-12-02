@@ -9,3 +9,4 @@ A simple responsive slider that accepts inconsistently-sized images by maintaini
 - Touch support
 - Pager support
 - CSS & markup simplification
+- Revisit use of `.load()` event binding
