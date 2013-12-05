@@ -7,8 +7,38 @@
     <meta name="description" content="Slides : " />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://raw.github.com/cgwyllie/Slides/master/css/slides.css">
+    <script src="https://raw.github.com/cgwyllie/Slides/master/js/jquery-1.10.2.min.js"></script>
+    <script src="https://raw.github.com/cgwyllie/Slides/master/js/slides.js"></script>
 
     <title>Slides</title>
+    
+    <script>
+                        $(function () {
+                                window.kittens = new Slides('#kittens', {
+                                        aspect: '16x9',
+                                        interval: 3000
+                                });
+
+                                $('#w').on('input', function () {
+                                        $('.container').css({width: this.value + '%'});
+                                        kittens.adjustContainerHeight();
+                                });
+
+                                $('#a').change(function () {
+                                        kittens.destroy();
+                                        window.kittens = new Slides('#kittens', {aspect: this.value});
+                                });
+
+                                $('#prev').click(function () {
+                                        kittens.previous();
+                                });
+
+                                $('#next').click(function () {
+                                        kittens.next();
+                                });
+                        });
+                </script>
   </head>
 
   <body>
@@ -31,37 +61,63 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        0% <input type="range" id="w" min="0" max="100" value="40"> 100%
+                <select id="a">
+                        <option value="1x1">1x1</option>
+                        <option value="3x1">3x1</option>
+                        <option value="4x3">4x3</option>
+                        <option value="1x3">1x3</option>
+                        <option value="16x9" selected>16x9</option>
+                        <option value="16x10">16x10</option>
+                </select>
+                <button id="prev">Prev</button>
+                <button id="next">Next</button>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+                <div class="container">
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+                        <ul id="kittens" class="slides fade">
+                                <li class="slide">
+                                        <div class="slide-content">
+                                                <img src="http://placekitten.com/300/200">
+                                                <div class="caption">300x200</div>
+                                        </div>
+                                </li>
+                                <li class="slide">
+                                        <div class="slide-content">
+                                                <img src="http://placekitten.com/300/300">
+                                                <div class="caption">300x300</div>
+                                        </div>
+                                </li>
+                                <li class="slide">
+                                        <div class="slide-content">
+                                                <img src="http://placekitten.com/200/300">
+                                                <div class="caption">200x300</div>
+                                        </div>
+                                </li>
+                                <li class="slide">
+                                        <div class="slide-content">
+                                                <img src="http://placekitten.com/500/300">
+                                                <div class="caption">500x300</div>
+                                        </div>
+                                </li>
+                                <li class="slide">
+                                        <div class="slide-content">
+                                                <img src="http://placekitten.com/300/600">
+                                                <div class="caption">300x600</div>
+                                        </div>
+                                </li>
+                                <li class="slide">
+                                        <div class="slide-content">
+                                                <img src="http://placekitten.com/350/240">
+                                                <div class="caption">350x240</div>
+                                        </div>
+                                </li>
+                        </ul>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+                        <h1>Example page content</h1>
+                        <p>Should not get eaten up by the slider because of any strange issues...</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+                </div>
       </section>
     </div>
 
