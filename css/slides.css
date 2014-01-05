@@ -58,6 +58,7 @@ ul.slides {
 	position: absolute;
 	margin: auto;
 	padding: 0;
+	border: none;
 	top: 0;
 	right: 0;
 	bottom: 0;
