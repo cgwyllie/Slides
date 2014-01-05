@@ -2,6 +2,8 @@
 
 A simple responsive slider that accepts inconsistently-sized images by maintaining a given aspect ratio.
 
+[Demo](http://cgwyllie.github.io/Slides)
+
 # Todo
 
 - Cross-browser testing
